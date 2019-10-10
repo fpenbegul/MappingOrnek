@@ -1,4 +1,5 @@
 ﻿using MappingOrnek4.DAL;
+using MappingOrnek4.DATA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,7 +35,19 @@ namespace MappingOrnek4.UI
                 MessageBox.Show("Lütfen Tüm alanları Doldurunuz!");
             else
             {
-
+                Personel personel = db.Personeller.FirstOrDefault(x => x.TCNo == txtTCNo.Text);
+                if (personel == null)
+                {
+                    personel = new Personel()
+                    {
+                        Isim = txtAd.Text,
+                        Soyisim = txtSoyad.Text,
+                        Birim = cmbBirimler.Text,
+                        Cinsiyet = rdErkek.Checked,
+                        DogumTarihi = dtDogumTarihi.Value,
+                        TCNo = txtTCNo.Text
+                    };
+                }
             }
 
         }
