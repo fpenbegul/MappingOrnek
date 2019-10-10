@@ -47,7 +47,18 @@ namespace MappingOrnek4.UI
                         DogumTarihi = dtDogumTarihi.Value,
                         TCNo = txtTCNo.Text
                     };
+                    db.Personeller.Add(personel);
+
+
+                    btnİletisim.Enabled = btnTemizle.Enabled = true;
+                    if (db.SaveChanges() >= 0)
+                    {
+                        MessageBox.Show("Kaydınız Gerçekleşmiştir...");
+                    }
+
                 }
+                else
+                    MessageBox.Show("Bu TC No'ya ait kayıt daha önce girilmiştir. Lütfen başka bir tc no giriniz...");
             }
 
         }
