@@ -18,7 +18,10 @@ namespace MappingOrnek4.DATA
 
         public virtual Personel Personel { get; set; }
 
-
+        public override string ToString()
+        {
+            return $"E-Mail: {Email}\nTelefon: {Telefon}\nAdres: {Adres}";
+        }
 
 
 

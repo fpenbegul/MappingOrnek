@@ -16,14 +16,13 @@ namespace MappingOrnek4.DAL
         }
 
         public DbSet<Personel> Personeller { get; set; }
-        public DbSet<IletisimBilgisi> IletisimBilgisis { get; set; }
+        public DbSet<IletisimBilgisi> IletisimBilgileri { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PersonelMapping());
             modelBuilder.Configurations.Add(new IletisimBilgisiMapping());
-
             base.OnModelCreating(modelBuilder);
 
 

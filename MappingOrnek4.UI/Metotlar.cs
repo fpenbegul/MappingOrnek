@@ -32,6 +32,19 @@ namespace MappingOrnek4.UI
             return false;
         }
 
+        public static void Temizle(GroupBox grp)
+        {
+            foreach (Control item in grp.Controls)
+            {
+                if (item is TextBox) item.Text = "";
+                else if (item is ComboBox) ((ComboBox)item).SelectedIndex = -1;
+                else if (item is DateTimePicker) ((DateTimePicker)item).Value = DateTime.Now;
+                else if (item is MaskedTextBox) ((MaskedTextBox)item).ResetText();
+                else if (item is ListBox) ((ListBox)item).DataSource = null;
+                else if (item is Label && item.Name.StartsWith("lbl")) item.Text = "";
+            }
+        }
+
 
     }
 }

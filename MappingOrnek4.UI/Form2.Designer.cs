@@ -32,13 +32,13 @@
             this.cmbPersoneller = new System.Windows.Forms.ComboBox();
             this.btnGiris = new System.Windows.Forms.Button();
             this.grpIletisim = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnKaydet = new System.Windows.Forms.Button();
+            this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
+            this.txtAdres = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnYeniPersonel = new System.Windows.Forms.Button();
             this.btnTumKayitlar = new System.Windows.Forms.Button();
             this.grpIletisim.SuspendLayout();
@@ -60,6 +60,7 @@
             this.cmbPersoneller.Name = "cmbPersoneller";
             this.cmbPersoneller.Size = new System.Drawing.Size(219, 21);
             this.cmbPersoneller.TabIndex = 1;
+            this.cmbPersoneller.SelectedIndexChanged += new System.EventHandler(this.CmbPersoneller_SelectedIndexChanged);
             // 
             // btnGiris
             // 
@@ -69,12 +70,13 @@
             this.btnGiris.TabIndex = 2;
             this.btnGiris.Text = "Giriş Veya Güncelleme Yap";
             this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.BtnGiris_Click);
             // 
             // grpIletisim
             // 
             this.grpIletisim.Controls.Add(this.btnKaydet);
             this.grpIletisim.Controls.Add(this.txtTelefon);
-            this.grpIletisim.Controls.Add(this.textBox1);
+            this.grpIletisim.Controls.Add(this.txtAdres);
             this.grpIletisim.Controls.Add(this.txtEmail);
             this.grpIletisim.Controls.Add(this.label4);
             this.grpIletisim.Controls.Add(this.label3);
@@ -86,30 +88,15 @@
             this.grpIletisim.TabStop = false;
             this.grpIletisim.Text = "İletişim Bilgisi Giriş Ekranı";
             // 
-            // label2
+            // btnKaydet
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "E-Mail Adresi :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Telefonu :";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(87, 30);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(168, 20);
-            this.txtEmail.TabIndex = 1;
+            this.btnKaydet.Location = new System.Drawing.Point(87, 191);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(168, 35);
+            this.btnKaydet.TabIndex = 13;
+            this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // txtTelefon
             // 
@@ -117,7 +104,22 @@
             this.txtTelefon.Mask = "(999) 000-0000";
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(168, 20);
-            this.txtTelefon.TabIndex = 2;
+            this.txtTelefon.TabIndex = 11;
+            // 
+            // txtAdres
+            // 
+            this.txtAdres.Location = new System.Drawing.Point(87, 102);
+            this.txtAdres.Multiline = true;
+            this.txtAdres.Name = "txtAdres";
+            this.txtAdres.Size = new System.Drawing.Size(168, 84);
+            this.txtAdres.TabIndex = 12;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(87, 30);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(168, 20);
+            this.txtEmail.TabIndex = 10;
             // 
             // label4
             // 
@@ -128,22 +130,23 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Adresi :";
             // 
-            // textBox1
+            // label3
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 102);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 84);
-            this.textBox1.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Telefonu :";
             // 
-            // btnKaydet
+            // label2
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(87, 191);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(168, 35);
-            this.btnKaydet.TabIndex = 3;
-            this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "E-Mail Adresi :";
             // 
             // btnYeniPersonel
             // 
@@ -153,6 +156,7 @@
             this.btnYeniPersonel.TabIndex = 4;
             this.btnYeniPersonel.Text = "Yeni Personel";
             this.btnYeniPersonel.UseVisualStyleBackColor = true;
+            this.btnYeniPersonel.Click += new System.EventHandler(this.BtnYeniPersonel_Click);
             // 
             // btnTumKayitlar
             // 
@@ -162,6 +166,7 @@
             this.btnTumKayitlar.TabIndex = 4;
             this.btnTumKayitlar.Text = "Tüm Kayıtlar";
             this.btnTumKayitlar.UseVisualStyleBackColor = true;
+            this.btnTumKayitlar.Click += new System.EventHandler(this.BtnTumKayitlar_Click);
             // 
             // Form2
             // 
@@ -176,6 +181,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.grpIletisim.ResumeLayout(false);
             this.grpIletisim.PerformLayout();
             this.ResumeLayout(false);
@@ -194,7 +201,7 @@
         private System.Windows.Forms.MaskedTextBox txtTelefon;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnKaydet;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnYeniPersonel;
         private System.Windows.Forms.Button btnTumKayitlar;

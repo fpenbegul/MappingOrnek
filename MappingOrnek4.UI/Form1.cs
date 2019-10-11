@@ -51,16 +51,27 @@ namespace MappingOrnek4.UI
 
 
                     btnİletisim.Enabled = btnTemizle.Enabled = true;
-                    if (db.SaveChanges() >= 0)
-                    {
-                        MessageBox.Show("Kaydınız Gerçekleşmiştir...");
-                    }
+                    db.SaveChanges();
+                    MessageBox.Show("Kaydınız Gerçekleşmiştir...");
 
                 }
                 else
                     MessageBox.Show("Bu TC No'ya ait kayıt daha önce girilmiştir. Lütfen başka bir tc no giriniz...");
             }
 
+        }
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            Metotlar.Temizle(grpPersonelKayit);
+            btnTemizle.Enabled = false;
+        }
+
+        private void Btnİletisim_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(this, db);
+            Hide();
+            form2.Show();
         }
     }
 }

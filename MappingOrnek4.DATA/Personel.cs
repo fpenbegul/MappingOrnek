@@ -27,6 +27,12 @@ namespace MappingOrnek4.DATA
 
         public virtual IletisimBilgisi IletisimBilgisi { get; set; }
 
+        public override string ToString()
+        {
+            return $"İsim Soyisim: {FullName}\nTcNo: {TCNo}\nDoğum Tarihi: {DogumTarihi.ToLongDateString()}" +
+                $"\nCinsiyet: " + (Cinsiyet ? "Erkek" : "Kadın") + $"\nBirim: {Birim}";
+        }
+
 
     }
 }

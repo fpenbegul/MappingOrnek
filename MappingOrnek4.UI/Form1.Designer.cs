@@ -207,6 +207,7 @@
             this.btnTemizle.TabIndex = 1;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // btnİletisim
             // 
@@ -216,6 +217,7 @@
             this.btnİletisim.TabIndex = 1;
             this.btnİletisim.Text = "İletişim Bilgilerini Gir";
             this.btnİletisim.UseVisualStyleBackColor = true;
+            this.btnİletisim.Click += new System.EventHandler(this.Btnİletisim_Click);
             // 
             // Form1
             // 
